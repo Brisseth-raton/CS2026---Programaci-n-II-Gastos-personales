@@ -183,4 +183,6 @@ En conjunto, estos patrones permiten agregar nuevos formatos de exportación, nu
 
 ## Evidencias
 
+Repositorio: https://github.com/Brisseth-raton/CS2026---Programaci-n-II-Gastos-personales 
+
 ![img.png](img.png)
