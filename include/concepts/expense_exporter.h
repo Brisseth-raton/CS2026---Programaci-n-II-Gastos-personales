@@ -12,26 +12,14 @@
 template<class T>
 concept ExpenseExporter =
 
-requires(
-T exporter,
-const ExpenseList&
-expenses
-)
+requires( T exporter, const ExpenseList& expenses )
 
 {
     {
-        exporter
-        .export_expenses(
-        expenses
-        )
+        exporter.export_expenses(expenses)
         }
-
     ->
-
-    std::same_as<
-    std::string
-    >;
-
+    std::same_as< std::string >;
 };
 
 #endif //EXPENSES_PATTERNS_EXPENSE_EXPORTER_H

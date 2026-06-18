@@ -23,15 +23,9 @@ struct AuditedExporter {
     {
         return
 
-        inner
-        .export_expenses(
-            expenses
-        )
-
+        inner.export_expenses(expenses)
         +
-
         "\n"
-
         "audit";
     }
 
