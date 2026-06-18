@@ -1,6 +1,9 @@
-#include "../include/expense.h"
+//
+// Created by HP on 18/06/2026.
+//
 
-#include "../include/sort.h"
+#ifndef EXPENSES_PATTERNS_TEST_INTEGRATION_EXPORT_SORTED_EXPENSES_H
+#define EXPENSES_PATTERNS_TEST_INTEGRATION_EXPORT_SORTED_EXPENSES_H
 
 #include "../include/exporters/csv_exporter.h"
 
@@ -8,9 +11,13 @@
 
 #include "../include/decorators/summary_exporter.h"
 
-#include <iostream>
+#include "../include/sort.h"
 
-int main()
+#include <cassert>
+
+inline
+void
+test_integration_export_sorted_expenses()
 {
     ExpenseList expenses{
 
@@ -45,9 +52,8 @@ int main()
     )
     {
         return
-            a.amount
-            >
-            b.amount;
+        a.amount >
+        b.amount;
     };
 
     sort_with(
@@ -74,15 +80,9 @@ int main()
         expenses
     );
 
-    std::cout
-
-    <<
-
-    output
-
-    <<
-
-    "\n";
-
-    return 0;
+    assert( expenses.front().amount == 45.00 );
+    assert( output.find( "date,category,detail,amount" ) != std::string::npos );
+    assert( output.find( "total" ) != std::string::npos );
+    assert( output.find( "audit" ) != std::string::npos );
 }
+#endif //EXPENSES_PATTERNS_TEST_INTEGRATION_EXPORT_SORTED_EXPENSES_H
